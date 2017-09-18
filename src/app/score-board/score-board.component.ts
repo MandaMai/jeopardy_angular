@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-score-board',
   templateUrl: './score-board.component.html',
@@ -11,7 +12,7 @@ export class ScoreBoardComponent implements OnInit {
 
   @Output() thingSelected = new EventEmitter<object>();
 
-  selectedThing: object;
+  selectedCard: object;
 
   @Input() title;
 
@@ -22,13 +23,13 @@ export class ScoreBoardComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickedThing(thingIClicked) {
-    this.selectedThing = thingIClicked;
-    this.thingSelected.emit(thingIClicked);
+  clickedCard(cardIClicked) {
+    this.selectedCard = cardIClicked;
+    this.selectedCard.emit(cardIClicked);
   }
 
 
 
 }
 
-}
+
