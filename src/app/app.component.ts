@@ -10,19 +10,25 @@ export class AppComponent implements OnInit {
   title = 'app';
   questionInfo;
 
-  constructor(private jeopardyService: JeopardyService) {}
+  constructor(private jeopardyService: JeopardyService) { }
 
-  getDataFromService() {
-    this.jeopardyService.getQuestionInfo()
+  getDataFromService(category) {
+    this.jeopardyService.getQuestionInfo(category)
       .subscribe(//like then in a promise
-        questionInfo => {
-          this.questionInfo = questionInfo[0];
-          }
-        )
-    }
+      questionInfo => {
+        this.questionInfo = questionInfo[0];
+      }
+      )
+  }
 
-  ngOnInit(){
-    this.getDataFromService();
+  ngOnInit() {
+    let seinfeld: string = "http://jservice.io/api/clues?count=5&category=1250";
+    let harrisonFord: string = "http://jservice.io/api/clues?count=5&category=835";
+    let looneyTunes: string = "http://jservice.io/api/clues?count=5&category=360";
+
+      console.log(seinfeld)
+
+    this.getDataFromService(seinfeld);
 
   }
   
